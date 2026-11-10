@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLearn Online School | Book a Lesson</title>
+  <!-- Tailwind CSS for styling and responsiveness -->
+  <script src="[suspicious link removed]"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- 1. HERO SECTION -->
+  <header class="bg-indigo-600 text-white py-16 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">SmartLearn Online School</h1>
+      <p class="text-lg md:text-xl mb-8">Master new skills with a personal tutor on your own flexible schedule.</p>
+      <a href="#booking-form" class="bg-yellow-400 text-indigo-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-300 transition">Book a Free Trial Lesson</a>
+    </div>
+  </header>
+
+  <!-- 2. SERVICES SECTION -->
+  <section class="py-12 px-4 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Learning Programs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h3 class="text-xl font-bold mb-2 text-indigo-600">Individual Lessons</h3>
+        <p class="text-gray-600">Personalized curriculum and 1-on-1 guidance tailored to your goals.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h3 class="text-xl font-bold mb-2 text-indigo-600">Group Classes</h3>
+        <p class="text-gray-600">Interactive learning in mini-groups (up to 5 students) with peer practice.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h3 class="text-xl font-bold mb-2 text-indigo-600">Intensive Course</h3>
+        <p class="text-gray-600">Fast-track preparation for exams and technical interviews in short timeframes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SOCIAL PROOF SECTION -->
+  <section class="bg-indigo-50 py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Student Results</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <p class="text-3xl font-extrabold text-indigo-600">150+</p>
+          <p class="text-sm text-gray-500">Graduated Students</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <p class="text-3xl font-extrabold text-indigo-600">94%</p>
+          <p class="text-sm text-gray-500">Exam Pass Rate</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <p class="text-3xl font-extrabold text-indigo-600">4.9 / 5</p>
+          <p class="text-sm text-gray-500">Average Student Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CONTACT / LEAD FORM -->
+  <section id="booking-form" class="py-12 px-4 max-w-xl mx-auto">
+    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200">
+      <h2 class="text-2xl font-bold mb-4 text-center">Book Your First Lesson</h2>
+      
+      <!-- n8n Response Alert Box -->
+      <div id="responseMessage" class="hidden mb-4 p-4 rounded-lg text-sm text-center"></div>
+
+      <form id="lessonForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+          <input type="text" id="name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Alex Smith">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+          <input type="email" id="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="alex@example.com">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Phone / Telegram</label>
+          <input type="text" id="phone" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="+7 700 123 4567">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Select Subject</label>
+          <select id="subject" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+            <option value="Mathematics">Mathematics</option>
+            <option value="English Language">English Language</option>
+            <option value="Python Programming">Python Programming</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition">
+          Submit Application
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 5. FOOTER -->
+  <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+    <p>© 2026 SmartLearn Online School. All rights reserved.</p>
+    <p class="mt-1">Contact: support@smartlearn.kz | Telegram: @smartlearn_bot</p>
+  </footer>
+
+  <!-- JAVASCRIPT FOR N8N WEBHOOK INTEGRATION -->
+  <script>
+    // Replace with your n8n Webhook URL once created
+    const N8N_WEBHOOK_URL = '[suspicious link removed]'; 
+
+    const form = document.getElementById('lessonForm');
+    const responseDiv = document.getElementById('responseMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Submitting...';
+      responseDiv.classList.add('hidden');
+
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        subject: document.getElementById('subject').value
+      };
+
+      try {
+        const response = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        responseDiv.classList.remove('hidden');
+        if (response.ok && result.success !== false) {
+          responseDiv.className = 'mb-4 p-4 rounded-lg text-sm text-center bg-green-100 text-green-800 border border-green-200';
+          responseDiv.innerText = result.message || 'Thank you! Your application has been received.';
+          form.reset();
+        } else {
+          responseDiv.className = 'mb-4 p-4 rounded-lg text-sm text-center bg-red-100 text-red-800 border border-red-200';
+          responseDiv.innerText = result.message || 'Error submitting form data.';
+        }
+      } catch (error) {
+        responseDiv.classList.remove('hidden');
+        responseDiv.className = 'mb-4 p-4 rounded-lg text-sm text-center bg-red-100 text-red-800 border border-red-200';
+        responseDiv.innerText = 'Could not connect to server. Please check Webhook URL or CORS settings in n8n.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit Application';
+      }
+    });
+  </script>
+</body>
+</html>
